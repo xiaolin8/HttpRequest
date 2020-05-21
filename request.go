@@ -110,7 +110,7 @@ func (r *Request) buildClient() *http.Client {
 
 // Set headers
 func (r *Request) SetHeaders(headers map[string]string) *Request {
-	if headers != nil || len(headers) > 0 {
+	if headers != nil && len(headers) > 0 {
 		for k, v := range headers {
 			r.headers[k] = v
 		}
@@ -128,7 +128,7 @@ func (r *Request) initHeaders(req *http.Request) {
 
 // Set cookies
 func (r *Request) SetCookies(cookies map[string]string) *Request {
-	if cookies != nil || len(cookies) > 0 {
+	if cookies != nil && len(cookies) > 0 {
 		for k, v := range cookies {
 			r.cookies[k] = v
 		}
@@ -313,6 +313,11 @@ func (r *Request) Post(url string, data ...interface{}) (*Response, error) {
 // Put is a put http request
 func (r *Request) Put(url string, data ...interface{}) (*Response, error) {
 	return r.request(http.MethodPut, url, data...)
+}
+
+// Patch is a patch http request
+func (r *Request) Patch(url string, data ...interface{}) (*Response, error) {
+	return r.request(http.MethodPatch, url, data...)
 }
 
 // Delete is a delete http request

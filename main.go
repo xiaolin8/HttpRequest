@@ -99,6 +99,12 @@ func Put(url string, data ...interface{}) (*Response, error) {
 	return r.Put(url, data...)
 }
 
+// Patch is a patch http request
+func Patch(url string, data ...interface{}) (*Response, error) {
+	r := NewRequest()
+	return r.Patch(url, data...)
+}
+
 // Delete is a delete http request
 func Delete(url string, data ...interface{}) (*Response, error) {
 	r := NewRequest()
