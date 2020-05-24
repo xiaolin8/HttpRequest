@@ -325,6 +325,16 @@ func (r *Request) Delete(url string, data ...interface{}) (*Response, error) {
 	return r.request(http.MethodDelete, url, data...)
 }
 
+// Head is a head http request
+func (r *Request) Head(url string, data ...interface{}) (*Response, error) {
+	return r.request(http.MethodHead, url, data...)
+}
+
+// Options is a options http request
+func (r *Request) Options(url string, data ...interface{}) (*Response, error) {
+	return r.request(http.MethodOptions, url, data...)
+}
+
 // Upload file
 func (r *Request) Upload(url, filename, fileinput string) (*Response, error) {
 	return r.sendFile(url, filename, fileinput)

@@ -111,6 +111,18 @@ func Delete(url string, data ...interface{}) (*Response, error) {
 	return r.Delete(url, data...)
 }
 
+// Head is a delete http request
+func Head(url string, data ...interface{}) (*Response, error) {
+	r := NewRequest()
+	return r.Head(url, data...)
+}
+
+// Options is a options http request
+func Options(url string, data ...interface{}) (*Response, error) {
+	r := NewRequest()
+	return r.Options(url, data...)
+}
+
 // Upload file
 func Upload(url, filename, fileinput string) (*Response, error) {
 	r := NewRequest()
